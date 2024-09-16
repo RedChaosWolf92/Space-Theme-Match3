@@ -1,8 +1,14 @@
 # File: Scripts/EvolutionPathways.gd
 extends Node
 
-@onready var ProbabilityManager = preload("res://Scripts/ProbabilityManager.gd").new()
-@onready var CompanionStarManager = preload("res://Scripts/CompanionStarManager.gd").new()
+var UIManager = null
+var PointsManager = null
+@onready var ProbabilityManager = preload("res://Scripts/EvolutionManager/EvolutionPathways/ProbabilityManager.gd").new()
+@onready var CompanionStarManager = preload("res://Scripts/EvolutionManager/EvolutionPathways/CompanionStarManager.gd").new()
+
+func initialize(ui_manager, points_manager):
+	UIManager = ui_manager
+	PointsManager = points_manager
 
 func check_for_evolution_options(current_state: String, points_needed: int):
 	match current_state:
@@ -62,7 +68,12 @@ func determine_star_tier(star_type: String, current_state: String) -> int:
 			elif star_type == "Blue":
 				tier_options = {1: 10, 2: 20, 3: 20, 4: 25, 5: 25}
 
-	return ProbabilityManager.choose_with_probability(tier_options)
+	var chosen_tier = ProbabilityManager.choose_with_probability(tier_options)
+	
+	if typeof(chosen_tier) == TYPE_INT:
+		return chosen_tier
+	else:
+		return 1
 
 func evolve_to_nebula(next_state: String):
 	current_state = next_state

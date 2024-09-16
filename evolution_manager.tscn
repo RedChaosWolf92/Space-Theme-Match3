@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://b651lau5oq3mi"]
+
+[ext_resource type="Script" path="res://Scripts/EvolutionManager/EvolutionManager.gd" id="1_x5qg6"]
+[ext_resource type="Script" path="res://Scripts/EvolutionManager/PointsManager.gd" id="2_22fjw"]
+[ext_resource type="Script" path="res://Scripts/EvolutionManager/EvolutionPathways.gd" id="2_cdhjh"]
+
+[node name="EvolutionManager" type="Node2D"]
+script = ExtResource("1_x5qg6")
+
+[node name="PointsManager" type="Node" parent="."]
+script = ExtResource("2_22fjw")
+
+[node name="EvolutionPathways" type="Node2D" parent="."]
+script = ExtResource("2_cdhjh")

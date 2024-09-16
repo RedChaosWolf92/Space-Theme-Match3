@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://b350wjrj67gdb"]
+
+[ext_resource type="Script" path="res://Main Game.gd" id="1_ujv8d"]
+[ext_resource type="PackedScene" uid="uid://b651lau5oq3mi" path="res://evolution_manager.tscn" id="2_lpt8p"]
+[ext_resource type="Script" path="res://Scripts/UIManager.gd" id="3_cq4d2"]
+
+[node name="Main Game" type="Node2D"]
+script = ExtResource("1_ujv8d")
+
+[node name="EvolutionManager" parent="." instance=ExtResource("2_lpt8p")]
+
+[node name="UtilityManager" type="Node2D" parent="."]
+
+[node name="UIManager" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_cq4d2")
