@@ -76,8 +76,7 @@ func determine_star_tier(star_type: String, current_state: String) -> int:
 		return 1
 
 func evolve_to_nebula(next_state: String):
-	current_state = next_state
 	PointsManager.evolution_points = 0
 	PointsManager.plasma_points = 0
-	GridManager.expand_grid(current_state)
-	UIManager.update_nebula_state(current_state)
+	GridManager.expand_grid(next_state)
+	UIManager.update_nebula_state(next_state)
